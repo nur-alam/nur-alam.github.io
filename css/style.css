@@ -126,6 +126,10 @@ ul li{
 	padding: 2px;
 }
 
+#Projects-show a{
+	color: #2D30BE;
+	text-decoration: underline;
+}
 
 footer{
 	height: 100px;
