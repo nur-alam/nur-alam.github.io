@@ -27,7 +27,7 @@
 	<h2>heredoc এবং nowdoc এর সাতকাহন</h2>
 	
 <p>	
-দুইটাই স্ট্রিং কে স্টোর করার জন্য বেবহার করা হয়।<br>
+দুইটাই স্ট্রিং কে স্টোর করার জন্য ব্যবহার করা হয়।<br>
 heredoc এর ব্যসিক গঠন..
 </p>
 
@@ -67,13 +67,13 @@ Historical instruction was 'now press any key'.<br>
 	</div>
 </div>
 <p>
-এখানে একটা heredoc যার নাম EOT সেটাকে $str variable রাখা হয়েছে এব পরের লাইনে সেটাকে প্রদর্শন করা হয়েছে। এখানে একটা সুবিধা heredoc এর মাঝে 
-$apple variable কে অনায়াসে ব্যাবহার করতে পাচ্ছি ।
+এখানে একটা heredoc যার নাম EOT সেটাকে $str variable এ রাখা হয়েছে এর পরের লাইনে সেটাকে প্রদর্শন করা হয়েছে। এখানে একটা সুবিধা heredoc এর মাঝে 
+$apple variable কে অনায়াসে ব্যবহার করতে পাচ্ছি ।
 </p>
 
 <p>
 	এখন আমরা দেখি nowdoc এর ব্যসিক গঠন..<br>
-	সবকিছু heredoc এর মতই থাকবে কিন্তু identifier নামে শুধু double অথবা single quote ব্যাবহার করলেই চলবে।<br>
+	সবকিছু heredoc এর মতই থাকবে কিন্তু identifier এর নামে শুধু double অথবা single quote ব্যবহার করলেই চলবে।<br>
 	&lt;&lt;&lt;'EOT'<br>
 	some string will be here.<br>
 EOT;
@@ -113,7 +113,7 @@ heredoc এর মাঝে variable parsing করা যায়।
 </p>
 <p>
 	
-এখন দেখা যাক কেন আমরা heredoc & nowdoc ব্যাবহার করব। আমরা variable এ স্ট্রিং রেখে সেটাকে প্রদর্শন করতে পারে। যেমনঃ
+এখন দেখা যাক কেন আমরা heredoc & nowdoc ব্যবহার করব। আমরা variable এ স্ট্রিং রেখে সেটাকে প্রদর্শন করতে পারি। যেমনঃ
 আমার পছন্দের বাক্য <i class="fa fa-meh-o" aria-hidden="true"></i> যদি আমি দেখাতে চাই তাহলে প্রোগ্রামটি লক্ষ করি..
 <div class="code">
 	<div class="code-inner">
@@ -133,9 +133,9 @@ says that "If ur father is poor no matter but if ur father-in-law is poor then u
 </div>
 <p>
 	
-একটু লক্ষ করি এখানে '\' escape character ব্যাবহার করেছি কারন বাক্যের মাঝে এই ""(quotation) দেখানোর জন্য। এটা খুবি ছোট বাক্য তাই ঝামেলা মনে হচ্ছে না কিন্তু যদি অনেকগুলি ""(quotation) থাকে তাহলে বারবার escape character দেয়াটা 
+একটু লক্ষ করি এখানে '\' escape character ব্যবহার করেছি কারন বাক্যের মাঝে এই ""(quotation) দেখানোর জন্য। এটা খুবি ছোট বাক্য তাই ঝামেলা মনে হচ্ছে না কিন্তু যদি অনেকগুলি ""(quotation) থাকে তাহলে বারবার escape character দেয়াটা 
 সময় নষ্ট এবং ঝামেলাপূর্ণ । কিন্তু বড় স্ট্রিং হলে সেটাকে যদি আমরা heredoc and nowdoc এর মাঝে রাখি তাহলে আমাদের
-quotation নিয়ে চিন্তাই করতে হবে না। যদি heredoc ব্যাবহার করি তাহলে variable ও  স্ট্রিং এর মাঝে ব্যাবহার করতে পারব। নিচের প্রোগ্রাম টিতে অনেক বড় স্ট্রিং কে heredoc এ দখানে হয়েছে । 
+quotation নিয়ে চিন্তাই করতে হবে না। যদি heredoc ব্যবহার করি তাহলে variable ও  স্ট্রিং এর মাঝে ব্যাবহার করতে পারব। নিচের প্রোগ্রামটিতে অনেক বড় স্ট্রিং কে heredoc এ দখানে হয়েছে । 
 যেখানে অনেকগুলি ""(quotation) আছে।
 	
 </p>
