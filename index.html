@@ -1,1 +1,138 @@
-<!DOCTYPE html><html><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><title>realtimetodoapp</title><link rel=stylesheet href=https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css><link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.css><link href=/static/css/app.d1bbcaac30c01c940b0a8058930c8877.css rel=stylesheet></head><body><div id=app></div><script src=https://code.jquery.com/jquery-3.2.1.min.js integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin=anonymous></script><script src=https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/js/bootstrap.min.js></script><script src=https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js></script><script type=text/javascript src=/static/js/manifest.55fa11254982c6430c80.js></script><script type=text/javascript src=/static/js/vendor.1efc188f7b2d5cc2923d.js></script><script type=text/javascript src=/static/js/app.f70cc395809c48c5b10a.js></script></body></html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Angular Js</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="js/ng.js"></script>
+    <style>
+		body{
+			/*margin-top: 30px;*/
+		}
+		.wrapper{
+		}
+		
+		.full-height {
+			height: 100vh;
+		}
+
+		.flex-center {
+			align-items: center;
+			display: flex;
+			justify-content: center;
+		}
+		
+		.badge{
+			cursor: pointer;
+		}
+		input[type="text"] {
+			border: 1px solid #ddd;
+			padding: 6px;
+		}
+		button.submitbtn {
+			border: 1px solid #ddd;
+			padding: 5px 17px;
+			background: #03A9F4;
+			color: #fff;
+			font-weight: bolder;
+			font-size: 16px;
+		}
+	</style>
+</head>
+
+<body ng-app="myApp" ng-controller="myCtrl">
+<div class="wrapper flex-center full-height">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-4 col-md-offset-4">
+				<div class="panel panel-default">
+					<div class="panel-heading">Angular js todo app</div>
+					<div class="panel-body">
+						<ul class="list-group">
+							<li class="list-group-item" ng-repeat="task in tasks">
+								{{ task }}
+								<span class="badge" ng-click="removetask($index)">
+									<span class="glyphicon glyphicon-remove"></span>
+								</span>
+							</li> 
+						</ul>
+					</div>
+					<div class="panel-heading">
+						<input type="text" ng-model="new_task">
+						<button class="submitbtn" ng-click="addtask()">Add</button>
+						<p ng-show="successtxt" class="alert" style="color:green;font-weight:bold;">{{successtxt}}</p>
+						<p ng-show="errortxt" class="alert" style="color:red;font-weight:bold;">{{errortxt}}</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>                           
+</body>
+
+<script>
+	
+	var app = angular.module('myApp',[]);
+	
+	app.controller('myCtrl',function($scope,$timeout, $interval){
+		$scope.errortxt = false;
+		$scope.successtxt = false;
+		$scope.tasks = ['angular js','node js','yoyo pops js'];
+/*		$scope.time = 0;
+		
+		$scope.start = function(){
+			$scope.time += 1;
+			if($scope.time>5){
+				$scope.yap();
+				document.getElementById('form').submit();
+				return 0;
+			};
+			$timeout(function () { 
+				$scope.start();
+			}, 1000);
+		};
+		
+		$scope.yap = function(){
+			$scope.time = 0;
+			alert("ur time is up guys "+$scope.yput);
+		};*/
+		
+		$scope.addtask = function(){
+			if(!$scope.new_task){ 
+				$scope.fashMsg('empty');
+				return;
+			};
+			if($scope.tasks.indexOf($scope.new_task) == -1){
+				$scope.tasks.push($scope.new_task);
+				$scope.fashMsg('add');
+			}else{
+				$scope.fashMsg('same');
+			}
+		};
+		
+		$scope.removetask = function(index){
+			$scope.tasks.splice(index,1);
+			$scope.fashMsg('remove');
+		};
+		
+		$scope.fashMsg = function(msgType){
+			$scope.errortxt = false;
+			$scope.successtxt = false;
+			if(msgType=='add'){
+				$scope.successtxt = "task added.";
+			}else if(msgType == 'same'){
+				$scope.errortxt = "already added this task!";
+			}else if(msgType == 'remove'){
+				$scope.errortxt = "task deleted.";
+			}else if(msgType == 'empty'){
+				$scope.errortxt = "task is empty!";
+			}else{
+				$scope.errortxt = "something wrong!";
+			}
+		};
+		
+	});
+	
+</script>
+
+</html>
